@@ -1,0 +1,22 @@
+#creating base image
+
+FROM node:22-alpine3.19
+
+#adding directory 
+
+WORKDIR '/app'
+
+#copying json code
+
+COPY package.json .
+
+#installing npm to get all our dependency
+
+RUN npm install
+
+# copying all rest of source code
+
+COPY . .
+
+
+CMD ["npm", "run", "start"]
